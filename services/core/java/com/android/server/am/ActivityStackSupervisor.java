@@ -829,9 +829,13 @@ public final class ActivityStackSupervisor implements DisplayListener {
     }
 
     void startHomeActivity(Intent intent, ActivityInfo aInfo, String reason) {
-        moveHomeStackTaskToTop(HOME_ACTIVITY_TYPE, reason);
-        startActivityLocked(null, intent, null, aInfo, null, null, null, null, 0, 0, 0, null,
-                0, 0, 0, null, false, null, null, null);
+        Slog.e("DAVE", "Starting home");
+        //DAVE
+        checkFinishBootingLocked();
+        return;
+//         moveHomeStackTaskToTop(HOME_ACTIVITY_TYPE, reason);
+//         startActivityLocked(null, intent, null, aInfo, null, null, null, null, 0, 0, 0, null,
+//                 0, 0, 0, null, false, null, null, null);
     }
 
     final int startActivityMayWait(IApplicationThread caller, int callingUid,
